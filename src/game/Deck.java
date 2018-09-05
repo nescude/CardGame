@@ -14,6 +14,7 @@ public class Deck {
     
     public Deck() {
         try {
+            cards.add(CardFactory.newCard("attack", "MicroDancer", 2, -30));
             cards.add(CardFactory.newCard("attack", "Daga de fuego", 2, 30));
             cards.add(CardFactory.newCard("attack", "Daga de fuego", 2, 30));
             cards.add(CardFactory.newCard("attack", "Daga de fuego", 2, 30));

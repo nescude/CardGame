@@ -11,6 +11,8 @@ import vista.IWindow;
 import vista.Window;
 
 
+/**Class that manage the game flow.
+ */
 public class GameMaster {
     private IA ia;
     private User user;
@@ -38,6 +40,9 @@ public class GameMaster {
     public int getTurn(){
         return turn;
     }
+
+    /**Class that init the window values.
+     */
     public void empezar(){
         for (int i=0;i<3;i++){
             user.draw();
@@ -53,6 +58,11 @@ public class GameMaster {
         vis.setExitButton(false);
         iniciaTurno(user);
     }
+
+    /**Class that perform the card action.
+     * @param i - Index in player's hand.
+     * @throws NoManaException - Exception if a player is running out of mana.
+     */
     public void pickCard(int i) throws NoManaException {
         
         if (turn ==0){
@@ -72,6 +82,9 @@ public class GameMaster {
         }
     }
 
+    /**Class that draw a card and manage the ai.
+     * @param player
+     */
     public void iniciaTurno(Player player) {
         if (player.canPutCard()){
             Card aux = player.draw();            
@@ -100,7 +113,9 @@ public class GameMaster {
     void serVis(IWindow vis) {
         this.vis=vis;
     }
-    
+
+    /**Class that change turn value 0<=>1.
+     */
     public void changeTurn(){
         if (turn == 0)
             turn = 1;

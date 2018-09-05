@@ -33,13 +33,18 @@ public class Deck {
         }
         Collections.shuffle(cards);
     }
-    
+
+    /**Draw and remove a card from the deck. 
+     * @return - returns the Card drawed.
+     */
     public Card draw(){
         Card aux = cards.remove(0);
-        
         return aux;
     }
 
+    /**Returns the size of the deck.
+     * @return
+     */
     public int getSize() {
         return cards.size();
     }

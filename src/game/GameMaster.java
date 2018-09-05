@@ -7,6 +7,8 @@ import modelo.User;
 
 import utils.NoManaException;
 
+import utils.TimeUtil;
+
 import vista.IWindow;
 import vista.Window;
 
@@ -20,7 +22,6 @@ public class GameMaster {
     private int turno=0;
     private int turn=0;
     public static int endFlag=0;
-
 
     public static int getEndFlag() {
         return endFlag;
@@ -53,7 +54,7 @@ public class GameMaster {
         vis.putCard(user.showCard(3).toString(),3);
         
         vis.updateStats();
-        vis.eventSign("");
+        vis.waitSign();
         vis.endSign("");
         vis.setExitButton(false);
         iniciaTurno(user);
@@ -64,22 +65,39 @@ public class GameMaster {
      * @throws NoManaException - Exception if a player is running out of mana.
      */
     public void pickCard(int i) throws NoManaException {
+        String sign;
         
         if (turn ==0){
             Card aux = user.showCard(i);
             aux.pick(user,ia);
+            if (aux.getFactor()>0)
+                sign = "-";
+            else
+                sign = "+";
             user.removeCard(i);
-            vis.eventSign(">>Usuario usó "+aux.getName()+"<<");
+            vis.eventSign(">>Usuario usó "+aux.getName()+" ["+sign+Math.abs(aux.getFactor())+"]<<");
             vis.updateStats();
         }
         else{
-            System.out.println(turn);
+            //System.out.println(turn);
             Card aux = ia.showCard(i);
             aux.pick(ia,user);
+            if (aux.getFactor()>0)
+                sign = "-";
+            else
+                sign = "+";
             ia.removeCard(i);
-            vis.eventSign(">>Enemigo usó "+aux.getName()+"<<");
+            vis.eventSign(">>Enemigo usó "+aux.getName()+" ["+sign+Math.abs(aux.getFactor())+"]<<");
             vis.updateStats();
         }
+        TimeUtil t = new TimeUtil();
+        t.setGm(this);
+        t.start();
+    }
+    
+    public void hideEventSign(){
+        vis.eventSign("");
+        vis.waitSign();
     }
 
     /**Class that draw a card and manage the ai.

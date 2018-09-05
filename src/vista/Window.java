@@ -44,7 +44,7 @@ public class Window extends javax.swing.JFrame implements IWindow{
         PlayerIcon = new javax.swing.JLabel();
         playerName = new javax.swing.JLabel();
         deckText = new javax.swing.JLabel();
-        hpText = new javax.swing.JLabel();
+        userHpText = new javax.swing.JLabel();
         manaText = new javax.swing.JLabel();
         SouthAuxPanel = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
@@ -53,6 +53,10 @@ public class Window extends javax.swing.JFrame implements IWindow{
         secondCardText = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         thirdCardText = new javax.swing.JLabel();
+        userHpBar = new javax.swing.JProgressBar();
+        userHpBar1 = new javax.swing.JProgressBar();
+        enemyHpText2 = new javax.swing.JLabel();
+        blackbg1 = new javax.swing.JPanel();
         EndTurnButton = new javax.swing.JButton();
         ExitButton = new javax.swing.JButton();
         jLabel105 = new javax.swing.JLabel();
@@ -61,43 +65,47 @@ public class Window extends javax.swing.JFrame implements IWindow{
         playerName1 = new javax.swing.JLabel();
         enemyHpText = new javax.swing.JLabel();
         enemyIcon = new javax.swing.JLabel();
+        enemyHpText1 = new javax.swing.JLabel();
+        enemyHpBar = new javax.swing.JProgressBar();
+        enemyHpBar1 = new javax.swing.JProgressBar();
         EndLabel = new javax.swing.JLabel();
         EndLabel1 = new javax.swing.JLabel();
+        blackbg = new javax.swing.JPanel();
         eventLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Abyss Seeker's");
-        getContentPane().setLayout(new AbsoluteLayout());
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
-        jPanel1.setLayout(new AbsoluteLayout());
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        SouthPanel.setBackground(new java.awt.Color(255, 51, 204));
-        SouthPanel.setLayout(new AbsoluteLayout());
+        SouthPanel.setBackground(new java.awt.Color(255, 0, 51));
+        SouthPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PlayerIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/pachicon.png"))); // NOI18N
-        SouthPanel.add(PlayerIcon, new AbsoluteConstraints(10, 10, -1, -1));
+        SouthPanel.add(PlayerIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         playerName.setFont(new java.awt.Font("Rockwell", 2, 30)); // NOI18N
         playerName.setForeground(new java.awt.Color(255, 255, 255));
-        playerName.setText("Nicolas");
-        SouthPanel.add(playerName, new AbsoluteConstraints(152, 12, -1, -1));
+        playerName.setText("User");
+        SouthPanel.add(playerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
         deckText.setFont(new java.awt.Font("Rockwell", 2, 24)); // NOI18N
         deckText.setForeground(new java.awt.Color(255, 255, 255));
         deckText.setText("Deck:  [20]");
-        SouthPanel.add(deckText, new AbsoluteConstraints(150, 50, 120, 30));
+        SouthPanel.add(deckText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 120, 30));
 
-        hpText.setFont(new java.awt.Font("Rockwell", 2, 24)); // NOI18N
-        hpText.setForeground(new java.awt.Color(255, 255, 255));
-        hpText.setText("HP:      [200]");
-        SouthPanel.add(hpText, new AbsoluteConstraints(290, 50, -1, 30));
+        userHpText.setFont(new java.awt.Font("Rockwell", 2, 24)); // NOI18N
+        userHpText.setForeground(new java.awt.Color(255, 255, 255));
+        userHpText.setText("[200/300]");
+        SouthPanel.add(userHpText, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, -1, 30));
 
         manaText.setFont(new java.awt.Font("Rockwell", 2, 24)); // NOI18N
         manaText.setForeground(new java.awt.Color(255, 255, 255));
         manaText.setText("Mana: [6/6]");
-        SouthPanel.add(manaText, new AbsoluteConstraints(150, 80, -1, -1));
+        SouthPanel.add(manaText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 180, -1));
 
         SouthAuxPanel.setBackground(new java.awt.Color(51, 51, 51));
         SouthAuxPanel.setLayout(new java.awt.GridLayout(3, 1));
@@ -151,20 +159,46 @@ public class Window extends javax.swing.JFrame implements IWindow{
 
         SouthAuxPanel.add(jPanel18);
 
-        SouthPanel.add(SouthAuxPanel, new AbsoluteConstraints(460, 0, 360, 150));
+        SouthPanel.add(SouthAuxPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 300, 150));
 
-        jPanel1.add(SouthPanel, new AbsoluteConstraints(0, 378, 830, 150));
+        userHpBar.setForeground(new java.awt.Color(0, 204, 102));
+        userHpBar.setValue(50);
+        userHpBar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        userHpBar.setBorderPainted(false);
+        SouthPanel.add(userHpBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 124, 210, -1));
 
-        EndTurnButton.setBackground(new java.awt.Color(255, 102, 102));
+        userHpBar1.setForeground(new java.awt.Color(255, 204, 0));
+        userHpBar1.setValue(50);
+        userHpBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        userHpBar1.setBorderPainted(false);
+        SouthPanel.add(userHpBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 110, -1));
+
+        enemyHpText2.setBackground(new java.awt.Color(0, 0, 0));
+        enemyHpText2.setFont(new java.awt.Font("Rockwell", 2, 20)); // NOI18N
+        enemyHpText2.setForeground(new java.awt.Color(0, 204, 102));
+        enemyHpText2.setText("HP");
+        enemyHpText2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        enemyHpText2.setAlignmentY((float) 0.0);
+        enemyHpText2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        SouthPanel.add(enemyHpText2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 122, 30, 20));
+
+        blackbg1.setBackground(new java.awt.Color(12, 11, 11));
+        blackbg1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        SouthPanel.add(blackbg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 148, 150));
+
+        jPanel1.add(SouthPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 378, 830, 150));
+
+        EndTurnButton.setBackground(new java.awt.Color(255, 0, 102));
         EndTurnButton.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
         EndTurnButton.setForeground(new java.awt.Color(255, 255, 255));
-        EndTurnButton.setText("End Turn");
+        EndTurnButton.setText(">>End Turn  ");
+        EndTurnButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         EndTurnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EndTurnButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(EndTurnButton, new AbsoluteConstraints(630, 310, 190, 50));
+        jPanel1.add(EndTurnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 310, 190, 60));
 
         ExitButton.setBackground(new java.awt.Color(255, 51, 0));
         ExitButton.setFont(new java.awt.Font("Rockwell", 0, 24)); // NOI18N
@@ -175,52 +209,78 @@ public class Window extends javax.swing.JFrame implements IWindow{
                 ExitButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(ExitButton, new AbsoluteConstraints(630, 250, 190, 50));
+        jPanel1.add(ExitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 250, 190, 50));
 
         jLabel105.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/drakeImage.png"))); // NOI18N
-        jPanel1.add(jLabel105, new AbsoluteConstraints(-20, 180, 290, 250));
+        jPanel1.add(jLabel105, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 170, 290, 250));
 
         jLabel107.setIcon(new javax.swing.ImageIcon("D:\\JDeveloper\\mywork\\Cartas\\CardGame\\src\\vista\\drakeEnemyImage.png")); // NOI18N
-        jPanel1.add(jLabel107, new AbsoluteConstraints(650, 30, -1, -1));
+        jPanel1.add(jLabel107, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, -1, -1));
 
-        jPanel15.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel15.setLayout(new AbsoluteLayout());
+        jPanel15.setBackground(new java.awt.Color(12, 11, 11));
+        jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         playerName1.setFont(new java.awt.Font("Rockwell", 2, 24)); // NOI18N
         playerName1.setForeground(new java.awt.Color(255, 255, 255));
         playerName1.setText("Enemy");
-        jPanel15.add(playerName1, new AbsoluteConstraints(120, 10, -1, -1));
+        jPanel15.add(playerName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, 30));
 
-        enemyHpText.setFont(new java.awt.Font("Rockwell", 2, 18)); // NOI18N
+        enemyHpText.setFont(new java.awt.Font("Rockwell", 2, 21)); // NOI18N
         enemyHpText.setForeground(new java.awt.Color(255, 255, 255));
-        enemyHpText.setText("HP:      [200]");
-        jPanel15.add(enemyHpText, new AbsoluteConstraints(120, 40, -1, -1));
+        enemyHpText.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        enemyHpText.setText("[200/300]");
+        jPanel15.add(enemyHpText, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 130, -1));
 
         enemyIcon.setIcon(new javax.swing.ImageIcon("D:\\JDeveloper\\mywork\\Cartas\\CardGame\\src\\vista\\EnemyIcon.png")); // NOI18N
-        jPanel15.add(enemyIcon, new AbsoluteConstraints(20, 20, -1, 50));
+        jPanel15.add(enemyIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 50));
 
-        jPanel1.add(jPanel15, new AbsoluteConstraints(0, 0, 820, 90));
+        enemyHpText1.setBackground(new java.awt.Color(0, 0, 0));
+        enemyHpText1.setFont(new java.awt.Font("Rockwell", 2, 18)); // NOI18N
+        enemyHpText1.setForeground(new java.awt.Color(204, 153, 0));
+        enemyHpText1.setText("HP");
+        enemyHpText1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        enemyHpText1.setAlignmentY((float) 0.0);
+        enemyHpText1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jPanel15.add(enemyHpText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 55, 30, 20));
+
+        enemyHpBar.setForeground(new java.awt.Color(255, 204, 0));
+        enemyHpBar.setValue(50);
+        enemyHpBar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        enemyHpBar.setBorderPainted(false);
+        jPanel15.add(enemyHpBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 56, 320, -1));
+
+        enemyHpBar1.setForeground(new java.awt.Color(255, 51, 204));
+        enemyHpBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        enemyHpBar1.setBorderPainted(false);
+        jPanel15.add(enemyHpBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 190, -1));
+
+        jPanel1.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 90));
 
         EndLabel.setFont(new java.awt.Font("Rockwell", 2, 80)); // NOI18N
         EndLabel.setForeground(new java.awt.Color(255, 204, 0));
         EndLabel.setText("Derrota");
-        jPanel1.add(EndLabel, new AbsoluteConstraints(265, 220, 280, 100));
+        jPanel1.add(EndLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 220, 280, 100));
 
         EndLabel1.setFont(new java.awt.Font("Rockwell", 2, 80)); // NOI18N
         EndLabel1.setForeground(new java.awt.Color(255, 102, 0));
         EndLabel1.setText("Derrota");
-        jPanel1.add(EndLabel1, new AbsoluteConstraints(260, 210, 310, 130));
+        jPanel1.add(EndLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 310, 130));
+
+        blackbg.setBackground(new java.awt.Color(0, 0, 0));
+        blackbg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         eventLabel.setFont(new java.awt.Font("Rockwell", 2, 24)); // NOI18N
-        eventLabel.setForeground(new java.awt.Color(255, 0, 51));
+        eventLabel.setForeground(new java.awt.Color(102, 153, 0));
         eventLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         eventLabel.setText(">>Nicolas usa Daga de Fuego<<");
-        jPanel1.add(eventLabel, new AbsoluteConstraints(-2, 150, 820, -1));
+        blackbg.add(eventLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 510, -1));
+
+        jPanel1.add(blackbg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 510, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\JDeveloper\\mywork\\Cartas\\CardGame\\src\\vista\\bg.jpg")); // NOI18N
-        jPanel1.add(jLabel1, new AbsoluteConstraints(-20, -130, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -130, -1, -1));
 
-        getContentPane().add(jPanel1, new AbsoluteConstraints(0, 0, 820, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, -1));
 
         pack();
     }//GEN-END:initComponents
@@ -323,12 +383,17 @@ public class Window extends javax.swing.JFrame implements IWindow{
     private javax.swing.JLabel PlayerIcon;
     private javax.swing.JPanel SouthAuxPanel;
     private javax.swing.JPanel SouthPanel;
+    private javax.swing.JPanel blackbg;
+    private javax.swing.JPanel blackbg1;
     private javax.swing.JLabel deckText;
+    private javax.swing.JProgressBar enemyHpBar;
+    private javax.swing.JProgressBar enemyHpBar1;
     private javax.swing.JLabel enemyHpText;
+    private javax.swing.JLabel enemyHpText1;
+    private javax.swing.JLabel enemyHpText2;
     private javax.swing.JLabel enemyIcon;
     private javax.swing.JLabel eventLabel;
     private javax.swing.JLabel firstCardText;
-    private javax.swing.JLabel hpText;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel105;
     private javax.swing.JLabel jLabel107;
@@ -342,6 +407,9 @@ public class Window extends javax.swing.JFrame implements IWindow{
     private javax.swing.JLabel playerName1;
     private javax.swing.JLabel secondCardText;
     private javax.swing.JLabel thirdCardText;
+    private javax.swing.JProgressBar userHpBar;
+    private javax.swing.JProgressBar userHpBar1;
+    private javax.swing.JLabel userHpText;
     // End of variables declaration//GEN-END:variables
 
 
@@ -354,10 +422,26 @@ public class Window extends javax.swing.JFrame implements IWindow{
 
     @Override
     public void updateStats() {
-        this.hpText.setText("HP:  ["+user.getHp()+"]");
         this.manaText.setText("Mana:  ["+user.getMana()+"/"+(user.getMaxMana()-1)+"]");
         this.deckText.setText("Deck:  ["+user.getDeckCount()+"]");
-        this.enemyHpText.setText("HP:  ["+ia.getHp()+"]");
+        this.userHpText.setText("["+user.getHp()+"/300]");
+        this.enemyHpText.setText("["+ia.getHp()+"/300]");
+        if (user.getHp()>200){
+            this.userHpBar.setValue(100);
+            this.userHpBar1.setValue((user.getHp()-200));
+        }
+        else{
+            this.userHpBar.setValue((int)(user.getHp()*0.5));
+            this.userHpBar1.setValue(0);
+        }
+        if (ia.getHp()>200){
+            this.enemyHpBar.setValue(100);
+            this.enemyHpBar1.setValue((ia.getHp()-200));
+        }
+        else{
+            this.enemyHpBar.setValue((int)(ia.getHp()*0.5));
+            this.enemyHpBar1.setValue(0);
+        }
     }
 
     @Override
@@ -369,8 +453,14 @@ public class Window extends javax.swing.JFrame implements IWindow{
 
     @Override
     public void eventSign(String sign) {
+        this.blackbg.setVisible(true);
         this.eventLabel.setText(sign);
         this.updateStats();
+    }
+    
+    @Override
+    public void waitSign() {
+        this.blackbg.setVisible(false);
     }
 
     @Override

@@ -20,7 +20,7 @@ public class User extends Player {
         if (canPutCard()){
             aux = super.deck.draw();
             int ist = putCard(aux);
-            System.out.println(hand[0]+" "+hand[1]+" "+hand[2]+" ");
+            //System.out.println(hand[0]+" "+hand[1]+" "+hand[2]+" ");
             vis.putCard(aux.toString(), ist);
             return aux;
         }

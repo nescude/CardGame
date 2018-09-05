@@ -12,6 +12,7 @@ public interface IWindow {
     void arranca();
     void updateStats();
     void endSign(String sign);
+    void waitSign();
     void eventSign(String sign);
     void setCard1(String string);
     void setCard2(String string);

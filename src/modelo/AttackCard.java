@@ -14,7 +14,16 @@ public class AttackCard extends Card{
 
     @Override
     public void pick(Player org,Player obj) throws NoManaException {
-        obj.getDMG(dmg);
         org.consumeMana(super.cost);
+        obj.getDMG(dmg);
+    }
+
+    public int getDmg() {
+        return dmg;
+    }
+
+    @Override
+    public int getFactor() {
+        return dmg;
     }
 }

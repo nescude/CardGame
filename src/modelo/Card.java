@@ -29,4 +29,6 @@ public abstract class Card {
     public int getCost() {
         return cost;
     }
+    
+    public abstract int getFactor();
 }

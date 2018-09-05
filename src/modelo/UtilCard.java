@@ -13,7 +13,12 @@ public class UtilCard extends Card {
 
     @Override
     public void pick(Player org,Player obj) throws NoManaException {
-        org.getDMG(-heal);
         org.consumeMana(super.cost);
+        org.getDMG(-heal);
+    }
+
+    @Override
+    public int getFactor() {
+        return -heal;
     }
 }

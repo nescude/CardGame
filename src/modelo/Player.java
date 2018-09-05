@@ -89,7 +89,7 @@ public abstract class Player {
         Card aux;
         if (canPutCard()){
             aux = this.deck.draw();
-            System.out.println(hand[0]+" "+hand[1]+" "+hand[2]+" ");
+            //System.out.println(hand[0]+" "+hand[1]+" "+hand[2]+" ");
             putCard(aux);
             return aux;
         }

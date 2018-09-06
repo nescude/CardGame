@@ -2,7 +2,7 @@ package utils;
 
 import modelo.AttackCard;
 import modelo.Card;
-import modelo.UtilCard;
+import modelo.HealCard;
 
 public class CardFactory {
     public static Card newCard(String tipo,String name,int cost,int dmg) throws IncorrectCardException {
@@ -12,7 +12,7 @@ public class CardFactory {
         }
         else{
             if (tipo.equals("util")){
-                aux = new UtilCard(cost,name,dmg);
+                aux = new HealCard(cost,name,dmg);
             }
             else
             throw new IncorrectCardException("Error formato de Carta Incorrecto");

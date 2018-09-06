@@ -28,7 +28,7 @@ public class MainRun {
         ia.setVis(vis);
         gm.setIa(ia);
         gm.setUser(user);
-        gm.serVis(vis);
+        gm.setVis(vis);
         vis.setIa(ia);
         vis.setUser(user);
         vis.setGm(gm);

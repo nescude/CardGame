@@ -2,11 +2,11 @@ package modelo;
 
 import utils.NoManaException;
 
-public class UtilCard extends Card {
+public class HealCard extends Card {
     protected String tipe="Util";
     private int heal;
 
-    public UtilCard(int consume, String nombre,int curacion) {
+    public HealCard(int consume, String nombre,int curacion) {
         super(consume, nombre);
         this.heal = curacion;
     }

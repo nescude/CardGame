@@ -93,10 +93,18 @@ public class GameMaster {
         TimeUtil t = new TimeUtil();
         t.setGm(this);
         t.start();
+        /**
+         * Player run out of Cards in the Deck
+         */
+        if (user.getDeckCount()==0 || ia.getDeckCount()==0){
+            GameMaster.setEndFlag(1);
+            vis.endSign("Empate");
+            vis.waitSign();
+            return;
+        }
     }
     
     public void hideEventSign(){
-        vis.eventSign("");
         vis.waitSign();
     }
 
@@ -105,7 +113,7 @@ public class GameMaster {
      */
     public void iniciaTurno(Player player) {
         if (player.canPutCard()){
-            Card aux = player.draw();            
+            player.draw();            
         }
         player.llenaMana();
         vis.updateStats();
@@ -128,7 +136,7 @@ public class GameMaster {
         }
     }
 
-    void serVis(IWindow vis) {
+    void setVis(IWindow vis) {
         this.vis=vis;
     }
 

@@ -6,6 +6,8 @@ import java.util.concurrent.TimeUnit;
 
 public class TimeUtil extends Thread{
     GameMaster gm;
+    protected static int con = 0;
+    protected int loc = ++con;
 
     public void setGm(GameMaster gm) {
         this.gm = gm;
@@ -15,7 +17,9 @@ public class TimeUtil extends Thread{
     public void run() {
         try {
             this.sleep(2500);
-            gm.hideEventSign();
+            if (con == loc){
+                gm.hideEventSign();
+            }
         } catch (InterruptedException e) {
         }
     }

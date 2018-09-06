@@ -2,6 +2,8 @@ package modelo;
 
 import game.Deck;
 
+import java.util.ArrayList;
+
 import utils.NoManaException;
 
 import vista.IWindow;
@@ -13,6 +15,7 @@ public abstract class Player {
     protected Deck deck = new Deck();
     protected Card[] hand=new Card[3];
     protected IWindow vis;
+    protected ArrayList<Condition> conditions = new ArrayList<Condition>();
     
     public abstract void defeat();
     
@@ -89,7 +92,6 @@ public abstract class Player {
         Card aux;
         if (canPutCard()){
             aux = this.deck.draw();
-            //System.out.println(hand[0]+" "+hand[1]+" "+hand[2]+" ");
             putCard(aux);
             return aux;
         }

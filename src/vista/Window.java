@@ -460,6 +460,7 @@ public class Window extends javax.swing.JFrame implements IWindow{
     
     @Override
     public void waitSign() {
+        this.eventLabel.setText("");
         this.blackbg.setVisible(false);
     }
 
